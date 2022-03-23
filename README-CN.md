@@ -1,19 +1,19 @@
-# terraform-alicloud-sae
-Terraform Module for creating SAE resources on Alibaba Cloud.
+terraform-alicloud-sae
+======================
 
-English | [简体中文](https://github.com/terraform-alicloud-modules/terraform-alicloud-sae/blob/master/README-CN.md)
+Terraform模块用于在阿里云上添加新的 sae 命名空间,配置列表,应用。
 
-Terraform module which add new sae application on Alibaba Cloud and batch configuration for it.
-
-These types of resources are supported:
+支持以下类型的资源：
 
 * [alicloud_sae_namespace](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/sae_namespace)
 * [alicloud_sae_config_map](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/sae_config_map)
 * [alicloud_sae_application](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/sae_application)
 
-## Usage
 
-Create a namespace and configure the following items under the namespace: Configuration List, Application.
+## 用法
+
+创建一个NameSpace并在该NameSpace下配置: 配置列表,应用。
+
 ```hcl
 module "example" {
   source                 = "terraform-alicloud-modules/sae/alicloud"
@@ -33,26 +33,28 @@ module "example" {
 }
 ```
 
-## Examples
 
-* [complete example](https://github.com/terraform-alicloud-modules/terraform-alicloud-sae/tree/master/examples/complete)
+## 示例
 
-## Terraform versions
+* [SAE 完整示例](https://github.com/terraform-alicloud-modules/terraform-alicloud-sae/tree/master/examples/complete)
+
+
+## Terraform 版本
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.0 |
 | <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | >= 1.67.0 |
 
-Authors
+作者
 -------
 Created and maintained by Alibaba Cloud Terraform Team(terraform@alibabacloud.com)
 
-License
+许可
 ----
 Apache 2 Licensed. See LICENSE for full details.
 
-Reference
+参考
 ---------
 * [Terraform-Provider-Alicloud Github](https://github.com/terraform-providers/terraform-provider-alicloud)
 * [Terraform-Provider-Alicloud Release](https://releases.hashicorp.com/terraform-provider-alicloud/)
