@@ -1,3 +1,6 @@
+provider "alicloud" {
+  region = "cn-hangzhou"
+}
 data "alicloud_zones" "default" {
 }
 
