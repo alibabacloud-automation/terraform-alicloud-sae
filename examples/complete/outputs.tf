@@ -1,24 +1,30 @@
 output "name_space_id" {
-  value = module.sae.namespace_id
+  description = "The NameSpace ID"
+  value       = module.sae.namespace_id
 }
 
 output "app_name" {
-  value = module.sae.app_name
+  description = "The App Name"
+  value       = module.sae.app_name
 }
 
 output "app_cpu" {
-  value = module.sae.app_cpu
+  description = "The App CPU"
+  value       = module.sae.app_cpu
 }
 
 output "app_mem" {
-  value = module.sae.app_mem
+  description = "The App MEM"
+  value       = module.sae.app_mem
 }
 
 output "replicas" {
-  value = module.sae.replicas
+  description = "The App Replicas"
+  value       = module.sae.replicas
 }
 
 output "package_type" {
-  value = module.sae.package_type
+  description = "The App Package Type"
+  value       = module.sae.package_type
 }
 

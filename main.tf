@@ -1,5 +1,5 @@
 locals {
-  namespace_id = var.namespace_id != "" ? var.namespace_id : concat(alicloud_sae_namespace.namespace.*.id, [""])[0]
+  namespace_id = var.namespace_id != "" ? var.namespace_id : concat(alicloud_sae_namespace.namespace[*].id, [""])[0]
 }
 
 #####################
@@ -79,4 +79,11 @@ resource "alicloud_sae_application" "application" {
   version_id                       = var.version_id
   war_start_options                = var.war_start_options
   web_container                    = var.web_container
+}
+
+resource "alicloud_sae_grey_tag_route" "default" {
+  count               = var.create_application && var.create_sae_grey_tag_route ? 1 : 0
+  app_id              = alicloud_sae_application.application[0].id
+  grey_tag_route_name = var.grey_tag_route_name
+  description         = var.grey_tag_route_description
 }
