@@ -365,6 +365,12 @@ variable "min_ready_instances" {
 #####################
 # alicloud_sae_grey_tag_route
 #####################
+variable "create_sae_grey_tag_route" {
+  description = "Whether to create the GreyTagRoute"
+  type        = bool
+  default     = false
+}
+
 variable "grey_tag_route_description" {
   type        = string
   description = "The description of GreyTagRoute."

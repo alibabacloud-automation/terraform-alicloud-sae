@@ -1,21 +1,24 @@
 provider "alicloud" {
   region = "cn-hangzhou"
 }
-data "alicloud_zones" "default" {
-}
 
 data "alicloud_vpcs" "default" {
   name_regex = "default-NODELETING"
 }
 data "alicloud_vswitches" "default" {
-  vpc_id = data.alicloud_vpcs.default.ids.0
+  vpc_id = data.alicloud_vpcs.default.ids[0]
+}
+
+resource "random_integer" "default" {
+  min = 10000
+  max = 99999
 }
 
 module "sae" {
   source = "../.."
   #  alicloud_sae_namespace
   create_namespace      = true
-  namespace_name        = "tftestacc"
+  namespace_name        = "tftestacc${random_integer.default.result}"
   region                = "cn-hangzhou"
   namespace_description = var.namespace_description
 
@@ -45,4 +48,5 @@ module "sae" {
   change_order_desc                    = var.change_order_desc
   command                              = var.command
   command_args                         = var.command_args
+  termination_grace_period_seconds     = var.termination_grace_period_seconds
 }

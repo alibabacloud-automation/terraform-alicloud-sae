@@ -62,12 +62,6 @@ variable "min_ready_instances" {
   default     = 2
 }
 
-variable "batch_wait_time" {
-  type        = number
-  description = "The batch wait time."
-  default     = 10
-}
-
 variable "timezone" {
   type        = string
   description = "Time zone, the default value is Asia/Shanghai."
@@ -102,4 +96,10 @@ variable "package_version" {
   type        = string
   description = "The version number of the deployment package. Required when the Package Type is War and FatJar."
   default     = "module_test"
+}
+
+variable "termination_grace_period_seconds" {
+  type        = number
+  description = "Graceful offline timeout, the default is 30, the unit is seconds. The value range is 1~60. Valid values: [1,60]."
+  default     = 60
 }
